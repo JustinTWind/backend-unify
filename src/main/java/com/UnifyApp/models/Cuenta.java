@@ -1,5 +1,6 @@
 package com.UnifyApp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,7 @@ public class Cuenta {
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
+    @JsonIgnore
     private Usuario usuario;
 
     @OneToMany(mappedBy = "cuenta", cascade = CascadeType.ALL, orphanRemoval = true)

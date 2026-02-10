@@ -1,5 +1,6 @@
 package com.UnifyApp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
@@ -19,11 +20,13 @@ public class Movimiento {
     private boolean activo;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cuenta_id")
+    @JsonIgnore
     private Cuenta cuenta;
 
     public Movimiento() {
